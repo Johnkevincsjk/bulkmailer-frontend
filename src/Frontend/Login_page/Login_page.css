@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap');
+
+.logIn_body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    h1 {
+        color: #43a046;
+        font-family: "Libre Franklin", sans-serif;
+    }
+
+    h3 {
+        color: #4267B2;
+    }
+}
+
+
+
+
+.login_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 400px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    border: 0.1px solid #575757;
+    box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.132);
+}
+
+Link {
+    color: #4268b3;
+}
+
+#Login_header {
+    font-family: "Lora", serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    border-bottom: 1px solid black;
+}
+
+#Login_form {
+    text-align: center;
+    padding: 10px 0;
+    width: 90%;
+}
+
+#Mailid {
+    margin: 0;
+}
+
+#Password {
+    margin: 0;
+}
+
+.Login_input {
+    height: 50px;
+    width: 300px;
+    margin: 10px 10px;
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 50%);
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+
+
+#Login_btn {
+    margin: 10px;
+    width: 200px;
+    border: none;
+    background-color: #43a046;
+    border-radius: 5px;
+    color: white;
+    font-weight: 800px;
+    font-size: 20px;
+}
+
+@media (max-width:800px) {
+    .login_content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+        h1 {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 10px;
+        }
+    }
+    .logIn_body{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .login_card {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 90vw;
+    }
+}

@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap');
+
+
+#signup_btn {
+    margin: 10px;
+    width: 200px;
+    border: none;
+    background-color: #43a046;
+    border-radius: 5px;
+    color: white;
+    font-weight: 800px;
+    font-size: 20px;
+
+}
+
+.signin_body {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+#signin_head {
+    font-family: "Lora", serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-top: 10px;
+
+    border-bottom: 1px solid black;
+}
+
+.signin_card {
+    height: auto;
+
+
+
+}
+
+#Signin_form {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+
+.signin_input {
+    margin: 5px 0;
+    height: 30px;
+}
+
+.signin_err_message {
+    font-size: 15px;
+    font-weight: 100;
+    color: red;
+    padding-bottom: 5px;
+    text-align: start;
+}
+
+
+@media (max-width:800px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .signin_card{
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 90vw;
+    }
+
+}
