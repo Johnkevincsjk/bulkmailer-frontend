@@ -22,7 +22,7 @@ export default function Login_page() {
             try {
                 const resp = await axios.post('http://localhost:5000/bulkmailer/Login', values)
 
-
+                console.log(resp);
 
                 if (resp.data.Feedback === "Log In successfull") {
 
