@@ -35,7 +35,7 @@ export default function SecondPage() {
             try {
 
 
-                const node_resp = await axios.post('http://localhost:5000/bulkmailer/api/nodemailer', values)
+                const node_resp = await axios.post('https://bulkmailer-backend.onrender.com/bulkmailer/api/nodemailer', values)
                 console.log(node_resp)
                 if (node_resp) {
                     toast.success('Mail sent successfully')
@@ -91,7 +91,7 @@ export default function SecondPage() {
                                 />
                                 <p className='signin_err_message'>{formik.errors.to && <small>{formik.errors.to}</small>}</p>
                             </div>
-                          
+
                             <div className='input_boxes'>
                                 <h6>Subject :</h6>
                                 <input type="text" className='input_box' required

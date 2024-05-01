@@ -20,7 +20,7 @@ export default function Login_page() {
         validationSchema: Login_schema,
         onSubmit: async (values) => {
             try {
-                const resp = await axios.post('http://localhost:5000/bulkmailer/Login', values)
+                const resp = await axios.post('https://bulkmailer-backend.onrender.com/bulkmailer/Login', values)
 
                 console.log(resp);
 
