@@ -10,7 +10,7 @@ import Nav from '../NavBar/Nav';
 import axios from 'axios'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { Oval } from 'react-loader-spinner'
 
 
 
@@ -19,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function SecondPage() {
+    const [mailspinner, setmailspinner] = useState(false)
 
     let textedit
 
@@ -33,16 +34,18 @@ export default function SecondPage() {
 
         onSubmit: async (values) => {
             try {
-
+                setmailspinner(true)
 
                 const node_resp = await axios.post('https://bulkmailer-backend.onrender.com/bulkmailer/api/nodemailer', values)
                 console.log(node_resp)
                 if (node_resp) {
+                    setmailspinner(false)
                     toast.success('Mail sent successfully')
                     formik.resetForm()
                 }
 
             } catch (error) {
+                setmailspinner(false)
                 toast.error(error.data.Feedback)
                 console.log(error)
             }
@@ -108,7 +111,16 @@ export default function SecondPage() {
                             <div className="textarea">
                                 <h6>Mail Content :</h6>
 
-                                <ReactQuill style={{ width: '100%', marginBottom: '10px' }} theme="snow"
+                                <ReactQuill
+                                modules={{
+                                    toolbar: [
+                                        ['bold', 'italic', 'underline','strike', 'blockquote', 'code-block'],
+                                        [{'list': 'ordered'}, {'list': 'bullet'}],
+                                        [{ 'script': 'sub'}, { 'script': 'super' }],
+                                        ['link', 'image']
+                                    ],
+                                }}
+                                style={{ width: '100%', marginBottom: '10px' }} theme="snow"
                                     id='text'
                                     name='text'
                                     onChange={handleEditorChange}
@@ -118,7 +130,7 @@ export default function SecondPage() {
 
                             </div>
                             <div className="input_btns">
-                                <motion.button initial={{ scale: 1 }} whileTap={{ scale: 0.8 }} id='send_btn' className='FirstPage_btn' type='submit'>Send <span> <FaPaperPlane /></span></motion.button>
+                                <motion.button initial={{ scale: 1 }} whileTap={{ scale: 0.8 }} id='send_btn' className='FirstPage_btn' type='submit' onClick={() => setmailspinner(!mailspinner)}>{mailspinner ? <Oval height={30} width={30} color='white' /> : "Send"}</motion.button>
 
                             </div>
 
