@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Signin_Page/Signin.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
@@ -8,10 +8,11 @@ import { FaSmile, FaMailBulk, FaUserLock } from 'react-icons/fa'
 import Signin_schema from './Signin_validation'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { Oval } from 'react-loader-spinner'
 
 
 const Signin = () => {
+  const [signinloader, setsigninloader] = useState(false)
   const navigate = useNavigate()
 
 
@@ -27,7 +28,7 @@ const Signin = () => {
 
 
       try {
-
+        setsigninloader(true)
         const resp = await axios.post('https://bulkmailer-backend.onrender.com/bulkmailer/api/createuser', values);
 
 
@@ -41,6 +42,7 @@ const Signin = () => {
         }
 
       } catch (error) {
+        setsigninloader(false)
         toast.error(error.response.data.Feedback)
         resetForm()
         console.error('Registration failed', error.response.data);
@@ -120,7 +122,7 @@ const Signin = () => {
             <p className='signin_err_message'>{errors.Cpassword && <small>{errors.Cpassword}</small>}</p>
 
 
-            <motion.button initial={{ scale: 1 }} whileTap={{ scale: 0.8 }} id='signup_btn' type='submit'>Sign up</motion.button>
+            <motion.button initial={{ scale: 1 }} whileTap={{ scale: 0.8 }} id='signup_btn' type='submit' onClick={() => setsigninloader(!signinloader)}>{signinloader ? <Oval height={30} width={30} color='white' /> : 'Sign up'}</motion.button>
           </form>
 
           <p >Already have an Account? <Link to={'/'} style={{ color: 'blue' }}>Login</Link></p>

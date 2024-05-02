@@ -8,7 +8,7 @@ import axios from 'axios';
 import { FaArrowCircleRight, FaLock } from 'react-icons/fa'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Audio, Circles, Oval } from 'react-loader-spinner'
+import { Oval } from 'react-loader-spinner'
 
 
 export default function Login_page() {
