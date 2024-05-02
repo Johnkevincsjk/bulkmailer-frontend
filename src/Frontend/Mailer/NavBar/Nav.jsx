@@ -26,7 +26,7 @@ export default function Nav() {
                     <a className='navoption' href="#contacts"><motion.li initial={{ y: -300 }} transition={{ duration: 0.5, type: "spring", stiffness: 100, delay: 0.2 }} animate={{ y: 0 }}>Contact</motion.li></a>
 
 
-                    <Link className='navoption' to={'/'}><motion.li initial={{ y: -300 }} transition={{ duration: 0.5, type: "spring", stiffness: 100, delay: 0.6 }} animate={{ y: 0 }}>Log Out</motion.li></Link>
+                    <Link className='navoption' id='Log_out_btn' to={'/'}><motion.li initial={{ y: -300 }} transition={{ duration: 0.5, type: "spring", stiffness: 100, delay: 0.6 }} animate={{ y: 0 }}>Log Out</motion.li></Link>
 
 
                 </ul>
