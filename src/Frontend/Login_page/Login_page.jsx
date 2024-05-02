@@ -1,6 +1,6 @@
 import '../Login_page/Login_page.css'
 import { Link, useNavigate } from 'react-router-dom'
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useFormik } from 'formik'
 import Login_schema from './Login_schema'
@@ -8,9 +8,11 @@ import axios from 'axios';
 import { FaArrowCircleRight, FaLock } from 'react-icons/fa'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Audio, Circles, Oval } from 'react-loader-spinner'
 
 
 export default function Login_page() {
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const { handleBlur, handleChange, handleSubmit, values, errors, resetForm } = useFormik({
         initialValues: {
@@ -20,6 +22,7 @@ export default function Login_page() {
         validationSchema: Login_schema,
         onSubmit: async (values) => {
             try {
+                setLoading(true)
                 const resp = await axios.post('https://bulkmailer-backend.onrender.com/bulkmailer/Login', values)
 
                 console.log(resp);
@@ -36,7 +39,7 @@ export default function Login_page() {
                 }
 
             } catch (error) {
-
+                setLoading(false)
                 toast.error(error.response.data.Feedback)
             }
         }
@@ -80,7 +83,7 @@ export default function Login_page() {
                             <span class="input-group-text" id="basic-addon2"><FaLock /></span>
                         </div>
                         <p className='signin_err_message'>{errors.Password && <small>{errors.Password}</small>}</p>
-                        <motion.button initial={{ scale: 1 }} whileTap={{ scale: 0.8 }} id='Login_btn'>Log in</motion.button>
+                        <motion.button initial={{ scale: 1 }} whileTap={{ scale: 0.8 }} onClick={() => setLoading(!loading)} id='Login_btn'>{loading ? <Oval height={30} width={30} color='white' /> : "Log-in"}</motion.button>
 
 
                     </form>

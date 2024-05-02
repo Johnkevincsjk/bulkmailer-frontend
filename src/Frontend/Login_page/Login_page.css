@@ -75,8 +75,9 @@ Link {
 
 #Login_btn {
     margin: 10px;
-    width: 200px;
+    width: auto;
     border: none;
+    padding: 0 100px;
     background-color: #43a046;
     border-radius: 5px;
     color: white;
