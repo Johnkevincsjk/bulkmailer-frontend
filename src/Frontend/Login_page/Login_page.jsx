@@ -47,7 +47,7 @@ export default function Login_page() {
     })
     return (
         <div className='container-fluid logIn_body'>
-            <div className="row justify-content-center align-items-center min-vh-100">
+            <div className="row w-100 justify-content-center align-items-center min-vh-100">
 
                 <motion.div initial={{ y: -400 }} transition={{ duration: 0.5, type: 'spring', stiffness: 110 }} animate={{ y: 0 }} className="login_content col-6 min-vw-50">
                     <h1>Mass Mailer</h1>
